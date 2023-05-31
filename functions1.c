@@ -80,7 +80,7 @@ int print_octal(va_list types, char buffer[],
 	}
 	j++;
 
-	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
+	return (write_unsgnd(0, j, buffer, flags, width, precision, size));
 }
 
 /**

@@ -45,44 +45,36 @@ int print_string(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
-        if (str == NULL)
+	if (str == NULL)
 	{
 		str = "(null)";
 
 		if (precision >= 6)
 			str = "      ";
 	}
-
 	while (str[length] != '\0')
 		length++;
-
 	if (precision >= 0 && precision < length)
 	{
 		length = precision;
 	}
-
 	if (width > length)
 	{
 		if (flags & F_MINUS)
 		{
 			write(1, &str[0], length);
-
 			for (j = width - length; j > 0; j--)
-
 				write(1, " ", 1);
-
 			return (width);
 		}
 		else
 		{
 			for (j = width - length; j > 0; j--)
 				write(1, " ", 1);
-
 			write(1, &str[0], length);
 			return (width);
 		}
 	}
-
 	return (write(1, str, length));
 }
 
